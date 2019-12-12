@@ -35,6 +35,10 @@
             android:process=":my_location"
             />
 
+        <service android:name=".location.UploadService"
+            android:process=":my_location"
+            />
+
 
     </application>
 

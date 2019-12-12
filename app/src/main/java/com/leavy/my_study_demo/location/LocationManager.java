@@ -41,13 +41,20 @@ public class LocationManager {
             if (amapLocation != null) {
                 if (amapLocation.getErrorCode() == 0) {
                     //定位成功回调信息，设置相关消息
-                    amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
-                    amapLocation.getLatitude();//获取纬度
-                    amapLocation.getLongitude();//获取经度
-                    amapLocation.getAccuracy();//获取精度信息
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    Date date = new Date(amapLocation.getTime());
-                    df.format(date);//定位时间
+//                    amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
+//                    amapLocation.getLatitude();//获取纬度
+//                    amapLocation.getLongitude();//获取经度
+//                    amapLocation.getAccuracy();//获取精度信息
+//                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                    Date date = new Date(amapLocation.getTime());
+//                    df.format(date);//定位时间
+
+                    String location = amapLocation.toStr();
+
+                    //开启服务UploadService上传信息
+
+
+
                 } else {
                     //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
                     Log.e("AmapError", "location Error, ErrCode:"
