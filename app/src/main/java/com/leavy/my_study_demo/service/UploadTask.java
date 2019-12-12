@@ -1,41 +1,22 @@
-package com.leavy.my_study_demo.location;
+package com.leavy.my_study_demo.service;
 
-import android.app.IntentService;
-import android.content.Context;
-import android.content.Intent;
+import android.app.job.JobInfo;
+import android.app.job.JobParameters;
+import android.os.AsyncTask;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import androidx.annotation.Nullable;
+public class UploadTask extends AsyncTask<JobParameters,Void,Void> {
 
-public class UploadService extends IntentService {
-
-
-    public UploadService() {
-        super("upload_service");
-    }
-
-    /**
-     * 上传信息
-     * @param location
-     */
-    public void UploadLocation(Context context , String location) {
-        //创建意图
-        Intent intent = new Intent(context,UploadService.class);
-        //把信息以键值对的形式放进意图中
-        intent.putExtra("location_data",location);
-        //开启服务
-        context.startService(intent);
-    }
-
+    JobParameters jobParameters ;
 
     @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
-        //接收到intent消息后取出intent中的值
-        String location = intent.getStringExtra("location_data");
+    protected Void doInBackground(JobParameters[] jobInfos) {
+        jobParameters = jobInfos[0];
+        String location = jobParameters.getExtras().getString("location_data");
         OutputStream os  = null ;
         HttpURLConnection connection = null ;
         try {
@@ -61,9 +42,12 @@ public class UploadService extends IntentService {
             }
 
         }
-
-
+        return null;
     }
 
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
 
+    }
 }

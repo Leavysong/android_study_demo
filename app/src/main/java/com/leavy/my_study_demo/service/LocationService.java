@@ -1,4 +1,4 @@
-package com.leavy.my_study_demo.location;
+package com.leavy.my_study_demo.service;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.SystemClock;
@@ -14,7 +13,6 @@ import android.os.SystemClock;
 import com.leavy.my_study_demo.receiver.AlarmReceiver;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 public class LocationService extends Service {
 

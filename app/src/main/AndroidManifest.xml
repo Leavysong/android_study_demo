@@ -31,11 +31,11 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".location.LocationService"
+        <service android:name=".service.LocationService"
             android:process=":my_location"
             />
 
-        <service android:name=".location.UploadService"
+        <service android:name=".service.UploadService"
             android:process=":my_location"
             />
 

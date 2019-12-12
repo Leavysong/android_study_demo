@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
-import com.leavy.my_study_demo.location.LocationManager;
+import com.leavy.my_study_demo.manager.LocationManager;
 
 public class AlarmReceiver extends BroadcastReceiver {
 

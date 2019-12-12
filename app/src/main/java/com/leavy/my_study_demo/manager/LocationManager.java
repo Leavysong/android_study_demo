@@ -1,4 +1,4 @@
-package com.leavy.my_study_demo.location;
+package com.leavy.my_study_demo.manager;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,9 +7,6 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class LocationManager {
 
@@ -34,7 +31,7 @@ public class LocationManager {
 
     Context appContext;
 
-    static AMapLocationListener aMapLocationListener = new AMapLocationListener() {
+    AMapLocationListener aMapLocationListener = new AMapLocationListener() {
         @Override
         public void onLocationChanged(AMapLocation amapLocation) {
 
@@ -52,7 +49,10 @@ public class LocationManager {
                     String location = amapLocation.toStr();
 
                     //开启服务UploadService上传信息
-
+                    //相对于这种不是及时性的消息  比如统计一段时间或者一天时间的定位信息
+                    //非及时性的动作可以使用JobScheduler来替换这种频繁网络交互
+                    //将要执行的工作统一在一起添加到JobScheduler然后延时性工作
+                    //UploadService.UploadLocation(appContext,location);
 
 
                 } else {
