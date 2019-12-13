@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import com.leavy.my_study_demo.manager.JobManager;
 import com.leavy.my_study_demo.manager.LocationManager;
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -15,6 +16,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         if (TextUtils.equals(intent.getAction(), "my_location")) {
             //是我们的自己的意图 拦截到后我们去开启定位
+            JobManager.getInstance().init(context);
             LocationManager.getInstance().startLocation(context);
         }
     }

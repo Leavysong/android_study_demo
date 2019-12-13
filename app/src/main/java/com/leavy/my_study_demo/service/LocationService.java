@@ -10,6 +10,8 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.SystemClock;
 
+import com.leavy.my_study_demo.manager.JobManager;
+import com.leavy.my_study_demo.manager.LocationManager;
 import com.leavy.my_study_demo.receiver.AlarmReceiver;
 
 import androidx.annotation.Nullable;
@@ -30,7 +32,6 @@ public class LocationService extends Service {
 
     @Nullable
     @Override
-
     public IBinder onBind(Intent intent) {
         return null;
     }
@@ -41,6 +42,8 @@ public class LocationService extends Service {
         super.onCreate();
         //wakeLock
         //lockKeep();
+        JobManager.getInstance().init(this);
+        LocationManager.getInstance().startLocation(this);
 
         //alarmManager
         alarmKeep();

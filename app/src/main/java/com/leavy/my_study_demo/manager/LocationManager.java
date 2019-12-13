@@ -53,7 +53,7 @@ public class LocationManager {
                     //非及时性的动作可以使用JobScheduler来替换这种频繁网络交互
                     //将要执行的工作统一在一起添加到JobScheduler然后延时性工作
                     //UploadService.UploadLocation(appContext,location);
-
+                    JobManager.getInstance().addJob(location);
 
                 } else {
                     //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
