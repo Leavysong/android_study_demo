@@ -90,6 +90,7 @@ public class JobManager {
                 .setRequiresCharging(true)
                 //设置没有在无计量时
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setExtras(bundle)
                 .build();
         //提交任务
         jobScheduler.schedule(newJobInfo);
